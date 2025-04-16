@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taiwan Pickleball Courts Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>台灣匹克球場地圖</h1>
+            <p>Taiwan Pickleball Courts Map</p>
+        </header>
+        
+        <div class="controls">
+            <div class="filter-container">
+                <label for="city-filter">城市篩選 (City Filter):</label>
+                <select id="city-filter">
+                    <option value="all">全部城市 (All Cities)</option>
+                </select>
+            </div>
+            
+            <div class="filter-container">
+                <label for="indoor-filter">室內/室外篩選 (Indoor/Outdoor):</label>
+                <select id="indoor-filter">
+                    <option value="all">全部 (All)</option>
+                    <option value="室內">室內 (Indoor)</option>
+                    <option value="室外">室外 (Outdoor)</option>
+                </select>
+            </div>
+            
+            <div class="filter-container">
+                <label for="fee-filter">收費篩選 (Fee):</label>
+                <select id="fee-filter">
+                    <option value="all">全部 (All)</option>
+                    <option value="是">收費 (Fee)</option>
+                    <option value="否">免費 (Free)</option>
+                </select>
+            </div>
+        </div>
+        
+        <div id="map"></div>
+        
+        <div class="court-info" id="court-info">
+            <h2>場地資訊 (Court Information)</h2>
+            <p>點擊地圖上的標記以查看詳細資訊 (Click on a marker to view details)</p>
+        </div>
+    </div>
+    
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
