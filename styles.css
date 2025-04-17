@@ -41,6 +41,13 @@ header p {
     color: #666;
 }
 
+.info-text {
+    font-size: 1rem; /* Adjust size as needed */
+    color: #0066cc; /* Match header color */
+    margin-top: 2px; /* Add small space between lines */
+    margin-bottom: 2px;
+}
+
 .controls {
     display: flex;
     flex-wrap: wrap;
