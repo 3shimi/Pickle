@@ -16,9 +16,19 @@ body {
 }
 
 header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; /* Stack items vertically initially */
     text-align: center;
     margin-bottom: 20px;
     color: #0066cc;
+}
+
+.logo {
+    max-width: 100px; /* Adjust size as needed */
+    height: auto;
+    margin-bottom: 10px; /* Add space below logo */
 }
 
 header h1 {
@@ -135,15 +145,71 @@ select {
 
 /* Responsive design */
 @media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Keep vertical stacking on small screens */
+    }
+
+    .logo {
+        max-width: 80px; /* Slightly smaller logo on mobile */
+        margin-bottom: 8px;
+    }
+
+    header h1 {
+        font-size: 1.8rem; /* Adjust heading size */
+    }
+
+    header p {
+        font-size: 1rem; /* Adjust paragraph size */
+    }
+
+    .controls {
+        flex-direction: column; /* Stack filters vertically */
+        padding: 10px;
+    }
+
     .filter-container {
         min-width: 100%;
+        margin-bottom: 10px; /* Add space between filters */
+    }
+
+    select {
+        padding: 10px;
+        font-size: 0.9rem;
     }
     
     #map {
-        height: 400px;
+        height: 350px; /* Adjust map height */
     }
-    
-    header h1 {
-        font-size: 2rem;
+
+    .court-info {
+        padding: 15px;
+    }
+
+    .court-info h2 {
+        font-size: 1.3rem;
+    }
+
+    .court-details h3 {
+        font-size: 1.1rem;
+    }
+
+    .court-details .label {
+        min-width: 80px; /* Adjust label width */
+    }
+}
+
+/* Optional: Adjust header layout for slightly larger screens */
+@media (min-width: 481px) and (max-width: 768px) {
+    header {
+        flex-direction: row; /* Side-by-side layout for tablets */
+        justify-content: flex-start; /* Align items to the start */
+        text-align: left;
+    }
+    .logo {
+        margin-right: 15px; /* Add space between logo and text */
+        margin-bottom: 0;
+    }
+    header h1, header p {
+        margin-bottom: 0;
     }
 }

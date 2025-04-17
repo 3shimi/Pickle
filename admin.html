@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新增匹克球場地</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #output {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <h1>新增匹克球場地</h1>
+    <div id="login-form" style="margin-bottom: 20px;">
+        <div class="form-group">
+            <label for="password">管理員密碼:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <button id="login-btn" type="button">登入</button>
+    </div>
+    <form id="add-court-form" style="display: none;">
+        <div class="form-group">
+            <label for="name">名稱 (Name):</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="city">城市 (City):</label>
+            <input type="text" id="city" name="city" required>
+        </div>
+        <div class="form-group">
+            <label for="address">地址 (Address):</label>
+            <input type="text" id="address" name="address">
+        </div>
+        <div class="form-group">
+            <label for="hours">開放時間 (Hours):</label>
+            <input type="text" id="hours" name="hours" required>
+        </div>
+        <div class="form-group">
+            <label for="indoor">室內/室外 (Indoor/Outdoor):</label>
+            <select id="indoor" name="indoor" required>
+                <option value="室內">室內 (Indoor)</option>
+                <option value="室外">室外 (Outdoor)</option>
+                <option value="風雨">風雨 (Covered)</option>
+                <option value="未知">未知 (Unknown)</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="fee">收費 (Fee):</label>
+            <select id="fee" name="fee" required>
+                <option value="是">是 (Yes)</option>
+                <option value="否">否 (No)</option>
+                <option value="未知">未知 (Unknown)</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="notes">備註 (Notes):</label>
+            <textarea id="notes" name="notes"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="lat">緯度 (Latitude):</label>
+            <input type="number" step="any" id="lat" name="lat" required>
+        </div>
+        <div class="form-group">
+            <label for="lng">經度 (Longitude):</label>
+            <input type="number" step="any" id="lng" name="lng" required>
+        </div>
+        <button type="submit">產生資料</button>
+    </form>
+
+    <h2>產生的資料 (複製到 data.js):</h2>
+    <pre id="output"></pre>
+
+    <script>
+        document.getElementById('login-btn').addEventListener('click', function() {
+            const password = document.getElementById('password').value;
+            if (password === 'projectWildrat') {
+                document.getElementById('login-form').style.display = 'none';
+                document.getElementById('add-court-form').style.display = 'block';
+            } else {
+                alert('密碼錯誤！');
+            }
+        });
+    </script>
+    <script src="admin.js"></script>
+</body>
+</html>
